@@ -1,0 +1,38 @@
+[
+    {
+        "bidders": 5,
+        "duration": 7,
+        "start_price": 95.0,
+        "start_time": "20 Nov 2021 at 11:12:52pm PST",
+        "bids": [
+            {
+                "price": 95.0,
+                "time": "22 Nov 2021 at 2:10:11pm PST"
+            },
+            {
+                "price": 96.0,
+                "time": "26 Nov 2021 at 8:50:02am PST"
+            },
+            {
+                "price": 97.0,
+                "time": "27 Nov 2021 at 8:02:00am PST"
+            },
+            {
+                "price": 103.0,
+                "time": "27 Nov 2021 at 11:12:24pm PST"
+            },
+            {
+                "price": 108.0,
+                "time": "27 Nov 2021 at 11:12:39pm PST"
+            },
+            {
+                "price": 108.0,
+                "time": "27 Nov 2021 at 9:46:55pm PST"
+            },
+            {
+                "price": 110.5,
+                "time": "27 Nov 2021 at 11:12:46pm PST"
+            }
+        ]
+    }
+]
