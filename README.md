@@ -13,4 +13,6 @@ Since viewing an auction's bid history requires being logged in, the scraper nee
 
 ## Data Processing
 
+After the json file has been created, the relevant values for each of the sales in the file are normalized and placed in a pandas DataFrame object for easy access. Each row in the DataFrame corresponds to an item which has been sold.
+
 ## Prediction Model
