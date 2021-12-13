@@ -48,3 +48,4 @@ for i in range(1,len(sales)):
     data = np.vstack([data,createRow(sales,i)])
 df = pd.DataFrame(data,columns=['Final Price','Bidders','Duration','Price Dif Mean','Price Dif SD','Time Dif Mean','Time Dif SD'])
 print(df)
+df.to_csv('auctions.csv')
