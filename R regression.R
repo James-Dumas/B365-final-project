@@ -9,11 +9,15 @@ library(tidyr)
 library(ggplot2)
 library(FactoMineR)
 
-# delete useless 1st column (indexes)
+# delete 1st column (indexes)
+df = data[-1]
 
-#################################################
-# linear regression with one variable at a time #
-#################################################
+#####################
+# linear regression #
+#####################
+
+
+# With one attribute at a time
 
 sses = rep(0,6)
 As = rep(0,6)
