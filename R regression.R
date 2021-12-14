@@ -108,6 +108,51 @@ for (d in rep(2:6)){
   }
 }
 
+################################
+# Weighted Multiple Regression #
+################################
+
+# homoscedasticity is not met, nor is normal distribution, so we can apply a log transformation and perform a weighted regression
+
+
+# Weighted Regression
+#####################
+
+logdf = log(df + 0.000000001) # not an ideal solution, but will eliminate problematic zeros
+head(logdf)
+Y = as.matrix(logdf$Final.Price)
+
+
+for (d in rep(2:6)){
+  for (i in rep(1:6)) {
+    if (d+i < 8){
+      X = as.matrix(logdf[,d:(d+i)])
+      xnames = paste0(names[d:(d+i)])
+      fmla <- as.formula(paste("Final.Price ~ ", paste(xnames, collapse= "+")))
+      fit = lm(fmla, data = logdf)
+      
+      # weight:
+      wt <- 1 / lm(abs(fit$residuals) ~ fit$fitted.values)$fitted.values^2
+      model <- lm(fmla, data = logdf, weights=wt)
+      cat("For the variables",names[d:(d+i)] ,"adjusted R squared is",summary(model)$adj.r.square, "\n")
+      
+      # Homoscedasticity?
+      plot(fitted(model), residuals(model))
+      abline(h = 0, lty = 2)
+      title(names[d:(d+i)])
+      # Normal distribution?
+      qqnorm(fitted(model))
+      qqline(fitted(model))
+      # independance?
+      print(durbinWatsonTest(model))
+    }
+  }
+}
+
+
+
+
+
 
 #########################
 # Polynomial Regression #
