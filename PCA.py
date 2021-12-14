@@ -47,7 +47,6 @@ plt.plot(d*10, color='black') #*10 so the eigen values are more visible. Do not 
 l1 = mpt.Patch(color='black', label='10*eigen values')
 plt.legend(handles=[l1])
 plt.tight_layout()
-plt.savefig('D:\Enora\LBM L3\B365 (Data analysis and mining)\Project\Pyplots\Elbow_diagram1.png', transparent = True, dpi = 1080)
 plt.show()
 
 # new basis: Xn.P
