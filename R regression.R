@@ -90,14 +90,20 @@ Y = as.matrix(Final.Price)
 for (d in rep(2:6)){
   for (i in rep(1:6)) {
     if (d+i < 8){
-      form = DF2formula(df[,d:(d+i)])
-      fit = lm(form, data = df)
+      X = as.matrix(df[,d:(d+i)])    
+      xnames = paste0(names[d:(d+i)])
+      fmla <- as.formula(paste("Final.Price ~ ", paste(xnames, collapse= "+")))
+      fit = lm(fmla, data = df)
       cat("For the variables",names[d:(d+i)] ,"adjusted R squared is",summary(fit)$adj.r.square, "\n")
-      # consistent variance?
+      # Homoscedasticity?
       plot(fitted(fit), residuals(fit))
       abline(h = 0, lty = 2)
       title(names[d:(d+i)])
-      
+      # Normal distribution?
+      qqnorm(fitted(fit))
+      qqline(fitted(fit))
+      # independance?
+      print(durbinWatsonTest(fit))      
     }
   }
 }
