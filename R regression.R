@@ -7,7 +7,10 @@ View(data)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(Metrics)
 library(FactoMineR)
+library(car)
+
 
 # delete 1st column (indexes)
 df = data[-1]
