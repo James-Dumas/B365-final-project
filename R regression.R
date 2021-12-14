@@ -1,5 +1,3 @@
-
-
 data = read.csv(file.choose(),stringsAsFactors=FALSE, sep=",")
 class(data)
 View(data)
@@ -111,20 +109,16 @@ for (d in rep(2:6)){
   }
 }
 
+
 ################################
 # Weighted Multiple Regression #
 ################################
 
 # homoscedasticity is not met, nor is normal distribution, so we can apply a log transformation and perform a weighted regression
 
-
-# Weighted Regression
-#####################
-
 logdf = log(df + 0.000000001) # not an ideal solution, but will eliminate problematic zeros
 head(logdf)
 Y = as.matrix(logdf$Final.Price)
-
 
 for (d in rep(2:6)){
   for (i in rep(1:6)) {
@@ -151,10 +145,6 @@ for (d in rep(2:6)){
     }
   }
 }
-
-
-
-
 
 
 #########################
@@ -204,6 +194,3 @@ dff = df[1:7]
 #pca = PCA(df, scale.unit=TRUE, ncp=2, graph=T)
 pca=PCA(dff, quanti.sup=1)
 plot(pca,habillage= "Final.Price",select="cos2 0.6")
-
-
-
