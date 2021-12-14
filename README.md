@@ -16,3 +16,7 @@ Since viewing an auction's bid history requires being logged in, the scraper nee
 After the json file has been created, the relevant values for each of the sales in the file are normalized and placed in a pandas DataFrame object for easy access. Each row in the DataFrame corresponds to an item which has been sold.
 
 ## Prediction Model
+"R regression.R" and "linRegression.py" contain various regression models which were used in the paper. "PCA.py" contains code for the principal component analysis.
+
+## Our Dataset
+The "data" folder contains two JSON files which contain the data scraped from eBay. "auctions.csv" contains the output of the data processing script.
